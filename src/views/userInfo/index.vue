@@ -120,26 +120,7 @@
       </el-table-column>
     </el-table>
 
-<!--    <el-pagination-->
-<!--      :current-page="queryParams.pageNum"-->
-<!--      :page-size="queryParams.pageSize"-->
-<!--      :total="queryParams.total"-->
-<!--      @current-change="fetchData"-->
-<!--      background-->
-<!--      layout="prev, pager, next"-->
-<!--    />-->
-
     <div class="pagination">
-      <!-- <el-pagination
-        background
-        layout="total, sizes, prev, pager, next, jumper"
-        :current-page="queryParams.pageNum"
-        :page-size="queryParams.pageSize"
-        :page-sizes="[20, 40, 60, 80, 100]"
-        :total="queryParams.total"
-        @size-change="handleSizeChange"
-        @current-change="handlePageChange"
-      /> -->
 
       <el-pagination
             @size-change="handleSizeChange"
@@ -211,6 +192,23 @@ export default {
     }
   },
   data() {
+    var checkPhone = (rule, value, callback) => {
+                if (!value) {
+                  return callback(new Error('不能为空'));
+                }
+                // const reg=new RegExp("^[0-9]+(.[0-9]*)?$");
+                // if(!reg.test(value)) {
+                //   callback(new Error('请输入大于0的数字'));
+                // }
+                setTimeout(() => {
+                  const reg=new RegExp("^[0-9]+(.[0-9]*)?$");
+                if(!reg.test(value)) {
+                  callback(new Error('请输入大于0的数字'));
+                }else {
+                  callback();
+                }
+                }, 1000);
+              };
     return {
       // 显示搜索条件
       showSearch: true,
@@ -249,7 +247,7 @@ export default {
           {required: true, message: "姓名不能为空", trigger: "blur"}
         ],
         phone: [
-          {required: true, message: "联系电话不能为空", trigger: "blur"}
+          {validator: checkPhone, trigger: "blur"}
         ],
         sex: [
           {required: true, message: "性别不能为空", trigger: "blur"}
