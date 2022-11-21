@@ -83,30 +83,18 @@
       highlight-current-row
     >
     <!-- <el-table-column type="selection" width="55"></el-table-column> -->
-    <el-table-column align="center" label="序号" width="95" sortable>
+    <el-table-column align="center" label="序号" width="95">
       <template slot-scope="scope">
         {{ scope.$index }}
       </template>
     </el-table-column>
-      <el-table-column align="center" label="ID" width="95" sortable>
-        <template slot-scope="scope">
-          {{ scope.row.id }}
-        </template>
+      <el-table-column align="center" label="ID" prop="id" width="95" sortable>
       </el-table-column>
-      <el-table-column label="账号">
-        <template slot-scope="scope">
-          {{ scope.row.account }}
-        </template>
+      <el-table-column label="账号" prop="account" sortable>
       </el-table-column>
-      <el-table-column label="姓名" width="110" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-        </template>
+      <el-table-column label="姓名" width="110" align="center" prop="name" sortable>
       </el-table-column>
-      <el-table-column label="联系电话" width="110" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.phone }}
-        </template>
+      <el-table-column label="联系电话" width="110" align="center" prop="phone" sortable>
       </el-table-column>
 
       <el-table-column label="性别" width="110" align="center" :formatter="formatSex" prop="sex" sortable></el-table-column>
