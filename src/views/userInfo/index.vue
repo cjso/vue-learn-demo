@@ -1,3 +1,8 @@
+<style>
+#el-item-name .el-input__inner{
+  text-align: right;
+}
+</style>
 <template>
   <div class="app-container">
 
@@ -133,8 +138,8 @@
             <el-form-item label="密码：" prop="password" v-if="showPassword">
               <el-input v-model="form.password" placeholder="请输入密码" style="width: 400px"/>
             </el-form-item>
-            <el-form-item label="姓名：" prop="name">
-              <el-input v-model="form.name" placeholder="请输入姓名" style="width: 400px"/>
+            <el-form-item label="姓名：" prop="name" id="el-item-name">
+              <el-input v-model="form.name" placeholder="请输入姓名" style="width: 400px;text-align: right;"/>
             </el-form-item>
             <el-form-item label="联系电话：" prop="phone">
               <el-input v-model="form.phone" placeholder="请输入联系电话" style="width: 400px"/>
