@@ -1,3 +1,9 @@
+<style>
+  .el-menu-item.is-active {
+      color: white !important;
+      font-size: 20px;
+  }
+</style>
 <template>
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
